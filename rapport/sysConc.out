@@ -1,0 +1,25 @@
+\BOOKMARK [0][-]{part.1}{I Rendez-vous ADA}{}% 1
+\BOOKMARK [1][-]{section.1}{Producteur/ Consommateur}{part.1}% 2
+\BOOKMARK [2][-]{subsection.1.1}{1 Producteur/ 1 Consommateur: tampon de taille N}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.2}{Producteur/ Consommateur avec un tampon de taille 1}{section.1}% 4
+\BOOKMARK [1][-]{section.2}{Lecteurs/ R\351dacteurs}{part.1}% 5
+\BOOKMARK [2][-]{subsection.2.1}{Priorit\351 aux Lecteurs}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.2}{Priorit\351 aux R\351dacteurs}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.3}{Priorit\351s \351gales}{section.2}% 8
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Principe de la solution}{subsection.2.3}% 9
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Code ADA}{subsection.2.3}% 10
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Tests}{subsection.2.3}% 11
+\BOOKMARK [0][-]{part.2}{II Objets/Types prot\351g\351s ADA 95}{}% 12
+\BOOKMARK [1][-]{section.3}{Rappel des principes des Objets/Types prot\351g\351s en ADA 95}{part.2}% 13
+\BOOKMARK [2][-]{subsection.3.1}{D\351finition}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.2}{Principe}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.3}{S\351mantique}{section.3}% 16
+\BOOKMARK [3][-]{subsubsection.3.3.1}{S\351mantique de base}{subsection.3.3}% 17
+\BOOKMARK [3][-]{subsubsection.3.3.2}{S\351mantique des entr\351es}{subsection.3.3}% 18
+\BOOKMARK [2][-]{subsection.3.4}{Diff\351rence avec les packages ADA}{section.3}% 19
+\BOOKMARK [1][-]{section.4}{Impl\351mentation \340 l'aide des Objets/Types prot\351g\351s}{part.2}% 20
+\BOOKMARK [2][-]{subsection.4.1}{Producteur/ Consommateur}{section.4}% 21
+\BOOKMARK [2][-]{subsection.4.2}{Lecteurs/ R\351dacteurs: sans priorit\351 et priorit\351 lecteurs en ADA 95}{section.4}% 22
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Priorit\351 \351gale}{subsection.4.2}% 23
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Priorit\351 lecteurs}{subsection.4.2}% 24
+\BOOKMARK [2][-]{subsection.4.3}{Le probl\350me du carrefour \340 sens giratoire}{section.4}% 25

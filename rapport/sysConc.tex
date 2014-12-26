@@ -13,15 +13,15 @@
 \fancyhead[L]{}
 \fancyhead[R]{}
 \renewcommand{\footrulewidth}{0.5pt}
-\fancyfoot[L]{\textit{Système concurrents}}
+\fancyfoot[L]{\textit{Systèmes concurrents}}
 \fancyfoot[R]{}
 \title{\textbf{Rapport de TP : Systèmes concurrents}}
 \author{Charles Follet, Roland Bary}
-\date{Projet disponible sur  \url{https://github.com/cfollet/ada_concurr}}
+\date{Fichiers sources disponibles sur \url{https://github.com/cfollet/ada_concurr}}
 \begin{document}
 \maketitle
 \begin{center}
-    \maketitle{\textbf{Université de Pau et des Pays de l'Adour}}
+    \maketitle{Master 1 Technologies de l'Internet\\\textbf{Université de Pau et des Pays de l'Adour}}
     \begin{center}
         \includegraphics[scale=0.3]{logoUppa.png}
     \end{center}
@@ -159,10 +159,6 @@ R1 est en cours\\
     \end{tabular} 
 \end{center}
 \newpage
-
-
-
-
 \part{Objets/Types protégés ADA 95}
 L'objectif de cette partie est de :
 \begin{itemize}
@@ -178,11 +174,41 @@ L'objectif de cette partie est de :
 %%Beaucoup plus simples que les moniteurs de hoare
 \section{Rappel des principes des Objets/Types protégés en ADA 95}
 \subsection{Définition}
+Un objet protégé définit des données privées ne pouvant être accédées que par les sous-programmes (fonctions, procédures ou entrées) associés à l'objet protégé.
 \subsection{Principe}
+Les objets protégés permettent l'encapsulation de données privées qui sont accédées par des fonctions (lecture des données), par des procédures (lectures/écritures des données semblables à celles d'un moniteur) et par des entrées (comme une procédure mais avec une mise en attente possible de l'appelant de la procédure)
+\textbf{La syntaxe est la suivante}
+\begin{verbatim}
+protected Nom_deL_Objet_Protege is
+	déclarations des fonctions, procédures et entrées de l'objet protégé
+private
+	déclaration des données privées e l'objet protégé
+end Nom_De_L_Objet_Protege;
+\end{verbatim}
 \subsection{Sémantique}
+\subsubsection{Sémantique de base}
+\begin{itemize}
+\item La partie privée définit les données ou contenu de l'objet protégé.
+\item Les fonctions définissent des actions de lecture du contenu de l'objet protégé (interdiction de modifier la valeur de celles-ci)
+\item Les procédures et les entrées définissent des actions de lecture et d'écriture des données de l'objet protégé (contrairement à une procédure ou à une fonction, l'appel à une entrée peut être bloquant)
+\item Plusieurs lectures peuvent avoir lieu simultanément
+\item Une action d'écriture exclut toute autre action (lecture ou écriture)
+\end{itemize}
+\subsubsection{Sémantique des entrées}
+\begin{itemize}
+\item[•]Une entrée permet de définir des traitements sous conditions
+\begin{itemize}
+\item Chaque entrée possède une file d'attente à laquelle est associée une expression booléenne que l'on appelle \textit{garde} ou \textit{barrière}
+\item L'entrée n'est "ouverte" que si cette expression (la garde) est vraie
+\item Lorsque l'entrée est \textit{fermée} (la garde est fausse), les appels sur cette entrée sont mis en attente (ils ne seront traités que lorsque la garde redeviendra vraie)
+\end{itemize}
+\item[•]Une tâche, exécutant le code d'une entrée, peut être placée dans la file d'attente d'une autre entrée par l'instruction \textit{requeue}
+\item[•]Une tâche en attente sur une entrée interne est plus prioritaire qu'une tâche faisant un nouvel appel à une entrée (ou procédure) de l'objet protégé.
+\end{itemize}
 \subsection{Différence avec les packages ADA}
-\section{Implémentation à l'aide des Objets/Types protégés}
+Il n'existe pas de différence particulière entre les Objets/Types protégés et les packages ADA. Ces deux notions ont toutes les deux une spécification (avec une partie privée) et un corps.
 \newpage
+\section{Implémentation à l'aide des Objets/Types protégés}
 \subsection{Producteur/ Consommateur}
 \begin{scriptsize}
     \verbatiminput{../prod_cons/objet_protege/prodcons.adb}
